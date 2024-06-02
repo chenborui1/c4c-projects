@@ -11,7 +11,7 @@ export default function Home(){
             setProjects(response.data)
         }
         findAllProjects();
-    }, []);
+    }, [PROJECTS_API]);
     return (
         <div><ProjectCard projects={projects}/></div>
     )
