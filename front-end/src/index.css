@@ -1,0 +1,86 @@
+
+@font-face {
+  font-family: 'LEMON';
+  src: local('LEMON'), url(./fonts/LEMONMILK-Regular.otf) format('opentype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(121, 9, 112, 1) 20%,
+    rgba(0, 212, 255, 1) 60%,
+    rgb(184, 20, 118) 80%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  background-image: var(--gradient);
+  background-size: 300%;
+  animation: bg-animation 15s infinite alternate;
+
+}
+
+body {
+  margin: 0;
+  padding-left: min(100px, 30%);
+  padding-right: min(100px, 30%);
+  font-family: -apple-system, BlinkMacSystemFont, "NEXTSTEP", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+
+ 
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}

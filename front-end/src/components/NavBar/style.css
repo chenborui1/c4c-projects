@@ -1,0 +1,62 @@
+.nav img {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.5s;
+   
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.nav img:hover, .admin-icon:hover, .nav h1:hover {
+    transform: scale(1.2);
+}
+.nav h1 {
+    --gradient: linear-gradient(
+        45deg,
+        rgba(121, 9, 112, 1) 0%,
+        rgba(0, 212, 255, 1) 35%,
+        rgba(241, 0, 145, 0.974) 70%,
+        rgb(217, 5, 225) 100%
+      );
+    font-size: 4rem;
+    font-family: LEMON;
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 75px;
+    transition: transform 0.5s;
+    
+}
+
+
+
+
+.nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
+    
+}
+
+.nav li {
+    list-style: none;
+    max-width: 100px;
+}
+
+
+.admin-icon {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.5s;
+}
