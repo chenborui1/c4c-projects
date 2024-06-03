@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import { IoIosClose } from "react-icons/io";
-import { color, motion } from "framer-motion"
+import {  motion } from "framer-motion"
 import './style.css'
 export default function loginModal({open, onClose}) {
     if (!open) {
