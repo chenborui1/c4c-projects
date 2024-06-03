@@ -1,4 +1,4 @@
-import ProjectRoutes from './Projects/routes.js'
+import ProjectRoutes from './Routes/Projects/routes.js'
 import cors from "cors";
 import express from "express"
 
