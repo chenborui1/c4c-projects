@@ -1,2 +1,3 @@
 import Projects from './projects.js'
-export default { Projects };
+import Admins from './admins.js'
+export default { Projects, Admins };

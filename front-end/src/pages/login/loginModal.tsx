@@ -1,33 +1,83 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import { IoIosClose } from "react-icons/io";
-import {  motion } from "framer-motion"
+import {  motion, AnimatePresence} from "framer-motion"
+import axios from 'axios';
+import AuthContext from '../../AuthContext.js';
 import './style.css'
-export default function loginModal({open, onClose}) {
-    if (!open) {
-        return null
-    }
+const API_BASE = ("https://c4c-projects.onrender.com" || "https:localhost:3000")
+//const API_BASE = "http://localhost:3000";
+export default function LoginModal({open, onClose}) {
+  const LOGIN_API = `${API_BASE}/api/login`;
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    username: "",
+    password: ""
+  });
+
+  if (!open) {
+    return null
+}
+
+
+  
+  const handleUser = (event) => {
+    const value = event.target.value;
+    setData({
+      username: value,
+      password: data.password
+    });
+  } 
+
+  const handlePassword = (event) => {
+    const value = event.target.value;
+    setData({
+      username: data.username,
+      password: value
+    });
+  } 
+
     
+    const login = () => {
+      if(!data.password || !data.username) {
+        console.log("empty username or password")
+        return
+      }
+      const response = async () => {
+        await axios.post(LOGIN_API, data).then((response) => {
+          setAuth({ token: true });
+          onClose();
+          navigate('/admin')
+         
+        });
+      }
+      response()
+    }
     
 
   return ReactDOM.createPortal(
     <>
     <div className='blur' onClick={onClose}></div>
+   <AnimatePresence>
+   {open && (
     <motion.div  initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{
               type: "spring",
               duration: 0.5,
               opacity: { duration: 2 },
-            }} className='modal'>
+            }}   exit={{opacity: 0 }} className='modal'>
       <span onClick={onClose}><IoIosClose size={50} className="exit-icon"/></span>
-      <form className="signup-form" action="hello" method='post' >
+      <div className="signup-form">
         <h1 style={{color: 'white'}}>Admin Login</h1>
-        <input type="text" id='first' name='first' placeholder='Username' required/>
-        <input type="password" name="password" id="password" placeholder='Password' required/>
-        <button type='submit'>Login</button>
-      </form>
-      </motion.div>,
+        <input  onChange={handleUser} type="text" id='first' name='first' placeholder='Username'  required/>
+        <input onChange={handlePassword} type="password" name="password" id="password" placeholder='Password' required/>
+        <button onClick={login}>Login</button>
+      </div>
+      </motion.div>)}
+      </AnimatePresence>,
       </>, 
       document.getElementById("portal")!,
       
