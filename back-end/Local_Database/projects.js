@@ -1,6 +1,5 @@
 export default [
   {
-    _id: "1",
     title: "Speak For The Trees",
     header: "Tree Stewardship System",
     description:
@@ -10,7 +9,6 @@ export default [
     active: true,
   },
   {
-    _id: "2",
     title: "This Star Won't Go Out",
     header: "Grant Application System",
     description:
@@ -20,7 +18,6 @@ export default [
     active: true,
   },
   {
-    _id: "3",
     title: "J-PAL",
     header: "Letter of Recommendation System",
     description:
@@ -30,7 +27,6 @@ export default [
     active: true,
   },
   {
-    _id: "4",
     title: "Breaktime",
     header: "Time Tracking & Grants System",
     description:

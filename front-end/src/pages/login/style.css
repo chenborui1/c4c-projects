@@ -84,4 +84,9 @@
 .exit-icon {
     margin-left: auto; 
     margin-right: 0;
+    transition: 0.5s;
+}
+
+.exit-icon:hover {
+    transform: scale(1.3);
 }
