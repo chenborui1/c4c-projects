@@ -1,16 +1,14 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import { IoIosClose } from "react-icons/io";
 import {  motion, AnimatePresence} from "framer-motion"
 import axios from 'axios';
-import AuthContext from '../../AuthContext.js';
 import './style.css'
 const API_BASE = ("https://c4c-projects.onrender.com" || "https:localhost:3000")
 //const API_BASE = "http://localhost:3000";
 export default function LoginModal({open, onClose}) {
   const LOGIN_API = `${API_BASE}/api/login`;
-  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
@@ -47,7 +45,7 @@ export default function LoginModal({open, onClose}) {
       }
       const response = async () => {
         await axios.post(LOGIN_API, data).then((response) => {
-          setAuth({ token: true });
+          window.localStorage.setItem('token', response.data);
           onClose();
           navigate('/admin')
          

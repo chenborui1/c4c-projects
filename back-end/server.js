@@ -1,5 +1,6 @@
 import ProjectRoutes from './Routes/Projects/routes.js'
 import Admins from './Routes/Admins/routes.js'
+import Authentication from './Routes/Authentication/routes.js'
 import cors from "cors";
 import express from "express"
 
@@ -8,6 +9,7 @@ const port = 3000
 app.use(cors())
 app.use(express.json())
 
+Authentication(app)
 Admins(app)
 ProjectRoutes(app)
 
