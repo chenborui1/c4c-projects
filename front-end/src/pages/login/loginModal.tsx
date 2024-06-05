@@ -5,7 +5,7 @@ import { IoIosClose } from "react-icons/io";
 import {  motion, AnimatePresence} from "framer-motion"
 import axios from 'axios';
 import './style.css'
-const API_BASE = ("https://c4c-projects.onrender.com" || "https:localhost:3000")
+const API_BASE = process.env.REACT_APP_API_BASE;
 //const API_BASE = "http://localhost:3000";
 export default function LoginModal({open, onClose}) {
   const LOGIN_API = `${API_BASE}/api/login`;
