@@ -2,8 +2,7 @@
 @font-face {
   font-family: 'LEMON';
   src: local('LEMON'), url(./fonts/LEMONMILK-Regular.otf) format('opentype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+
 }
 :root {
   --gradient: linear-gradient(
@@ -14,11 +13,15 @@
     rgb(184, 20, 118) 80%,
     rgba(2, 0, 36, 1) 100%
   );
+
+   --adminGradient: linear-gradient(157deg,#3689aa,#4dd87f,#5af86b,#5a6d5a);
+   
   background-image: var(--gradient);
   background-size: 300%;
   animation: bg-animation 15s infinite alternate;
 
 }
+
 
 body {
   margin: 0;
@@ -84,3 +87,5 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+
