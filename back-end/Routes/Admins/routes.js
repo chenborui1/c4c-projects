@@ -11,7 +11,7 @@ export default function Admins(server) {
       
        
       
-        return jwt.sign(payload, secret, {expiresIn: 5});
+        return jwt.sign(payload, secret, {expiresIn: 300});
       }
     const users = Local_DB.Admins
     server.post('/api/login',  (req, res) => {
