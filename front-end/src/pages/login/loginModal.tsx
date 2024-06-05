@@ -46,6 +46,7 @@ export default function LoginModal({open, onClose}) {
       const response = async () => {
         await axios.post(LOGIN_API, data).then((response) => {
           window.localStorage.setItem('token', response.data);
+          console.log("Logged in success")
           onClose();
           navigate('/admin')
          

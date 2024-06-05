@@ -1,8 +1,9 @@
 import NavBar from "./components/NavBar/NavBar.tsx";
 import Home from "./pages/home/home.tsx";
 import PrivateRoutes from "./PrivateRoutes.js";
+import AdminNavBar from "./pages/admin-page/components/NavBar.tsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Admin from "./pages/admin-page/AdminPage.tsx";
+import Admin from "./pages/admin-page/AdminHome.tsx";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
             </div>
           } />
             <Route element={<PrivateRoutes />}>
-                <Route element={<Admin/>} path="/admin" />
+                <Route element={<div>
+                <AdminNavBar/>
+                <Admin/></div>} path="/admin" />
             </Route>
         </Routes>
       </BrowserRouter>
