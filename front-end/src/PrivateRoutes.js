@@ -1,42 +1,46 @@
-import { Outlet, useNavigate } from 'react-router-dom'
-import React, {useEffect, useState} from 'react'
-import axios from 'axios' 
-const API_BASE = ("https://c4c-projects.onrender.com" || "https:localhost:3000")
+import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+const API_BASE = process.env.REACT_APP_API_BASE;
 //const API_BASE = "http://localhost:3000";
 const PrivateRoutes = () => {
     const AUTHENTICATE_API = `${API_BASE}/api/protected`;
-    const Navigate = useNavigate();
-    const [isAuthenticated, setisAuthenticated] = useState(false)
-   
-    
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
 
     useEffect(() => {
-        const retrievedToken = window.localStorage.getItem('token')
+        const retrievedToken = window.localStorage.getItem('token');
         if (!retrievedToken) {
-            console.log("No token found no request")
-            return 
+            console.log("No token found, navigating to home");
+            navigate('/');
+            return;
         }
-       
+
         const authenticate = async () => {
             try {
-            const response = await axios.get(AUTHENTICATE_API,  {
-                headers: {
-                  'Authorization': retrievedToken
-                }
-              })
-            setisAuthenticated(response.data)
+                await axios.get(AUTHENTICATE_API, {
+                    headers: {
+                        'Authorization': retrievedToken
+                    }
+                });
+                setIsAuthenticated(true);
             } catch (error) {
-                if (error.response && error.response.status === 401) {
-                    Navigate('/')
-                  }
+                if (error.response) {
+                    setIsAuthenticated(false);
+                    navigate('/');
+                }
             }
         }
         authenticate();
-      }, [AUTHENTICATE_API, isAuthenticated, Navigate]);
+    }, [AUTHENTICATE_API, navigate]);
 
-    return(
-        isAuthenticated ? <Outlet/> : <Navigate to="/admin"/>
-    )
+    if (isAuthenticated === null) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        isAuthenticated ? <Outlet /> : null
+    );
 }
 
-export default PrivateRoutes
+export default PrivateRoutes;

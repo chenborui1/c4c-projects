@@ -13,7 +13,7 @@
         opacity: 1;
     }
 }
-.nav img:hover, .admin-icon:hover, .nav h1:hover {
+.nav img:hover, .admin-icon:hover, .logout-icon:hover, .nav h1:hover {
     transform: scale(1.2);
 }
 .nav h1 {
@@ -29,7 +29,7 @@
     background-image: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-right: 75px;
+
     transition: transform 0.5s;
     
 }
@@ -55,8 +55,14 @@
 }
 
 
-.admin-icon {
+.admin-icon, .logout-icon {
     max-width: 100px;
     height: auto;
     transition: transform 0.5s;
+}
+
+
+.log-nav {
+    display: flex;
+    gap: 30px;
 }
