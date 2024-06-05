@@ -28,6 +28,7 @@ const PrivateRoutes = () => {
                 if (error.response) {
                     setIsAuthenticated(false);
                     navigate('/');
+                    
                 }
             }
         }
