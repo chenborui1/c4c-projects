@@ -1,5 +1,6 @@
 .admin-body {
     animation: fadeInAnimation ease 3s;
+    
 }
 @keyframes fadeInAnimation {
     0% {
