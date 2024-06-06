@@ -8,6 +8,7 @@ import {  motion } from "framer-motion"
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 export default function AdminPage() {
+document.body.style.overflow = 'auto'
   const [projects, setProjects] = useState<any[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<any[]>([]);
   const [isActiveChecked, setIsActiveChecked] = useState(false);
