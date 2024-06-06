@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../../../images/logo.png";
+import logo from "../../../../images/logo.png";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import '../../../components/NavBar/style.css'
+import '../../../../components/NavBar/style.css'
 export default function NavBar() {
   const navigate = useNavigate();
   return (

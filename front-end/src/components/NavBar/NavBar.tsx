@@ -37,9 +37,9 @@ export default function NavBar() {
               })
             setisAuthenticated(true)
             } catch (error) {
-               
+    
                     setisAuthenticated(false);
-                 
+                    return
                    
                   
             }

@@ -1,7 +1,7 @@
 import NavBar from "./components/NavBar/NavBar.tsx";
 import Home from "./pages/home/home.tsx";
 import PrivateRoutes from "./PrivateRoutes.js";
-import AdminNavBar from "./pages/admin-page/components/NavBar.tsx"
+import AdminNavBar from "./pages/admin-page/components/NavBar/NavBar.tsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./pages/admin-page/AdminHome.tsx";
 
