@@ -20,7 +20,6 @@ export default function AddModal({open, onClose}) {
 
   useEffect(() => {
     const value = isActiveChecked
-    console.log(value)
     setData({
         title: data.title,
         header: data.header,
@@ -28,7 +27,7 @@ export default function AddModal({open, onClose}) {
         img_url: data.img_url,
         active: value
     });
-  }, [isActiveChecked])
+  }, [isActiveChecked, data.title, data.header, data.description, data.img_url])
 
   if (!open) {
     return null
