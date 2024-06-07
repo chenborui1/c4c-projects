@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const projectSchema = new mongoose.Schema({
-    title: { type: String, required: true, unique: true },
+    title: { type: String, required: true },
     header: { type: String, required: true },
     description: {type: String, required: true},
     image_url: {type: String, required: true},

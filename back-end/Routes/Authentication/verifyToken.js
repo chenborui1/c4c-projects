@@ -4,6 +4,7 @@ const secret = process.env.SECRET_KEY;
 
 function VerifyToken(req, res, next) {
   const token = req.headers.authorization;
+  console.log(token)
   console.log("made request")
 
   if (!token) {

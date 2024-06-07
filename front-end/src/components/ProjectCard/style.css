@@ -57,3 +57,14 @@
     ;
 }
 
+.content {
+    min-width: 80vh;
+    max-width: 80vh;
+}
+
+.content h1 {
+    min-width: 80vh;
+    max-width: 80vh;
+    display: inline-block;
+    
+}
