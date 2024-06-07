@@ -1,0 +1,77 @@
+.add-modal {
+    --gradient: linear-gradient(
+        25deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(121, 9, 112, 1) 20%,
+        rgba(0, 212, 255, 1) 60%,
+        rgb(184, 20, 118) 80%,
+        rgba(2, 0, 36, 1) 100%
+      );
+      background-image: var(--gradient);
+      background-size: 300%;
+      animation: bg-animation 15s infinite alternate;
+    
+    position: fixed;
+    top: 10%;
+    left: 23%;
+   
+  
+    border-radius: 10px;
+    padding: 10px;
+    width: 100vh;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.create-project-btns {
+    display: inline-block;
+}
+#active-button {
+    margin: 0;
+    width: 100px;
+    border: none;
+}
+
+#active-button:hover {
+    transform: scale(1.1);
+}
+
+  #active-button.active {
+    background-color: green;
+    color: white;
+   
+  }
+  
+  #active-button.inactive {
+    background-color: red; 
+    color: white;
+   
+  }
+
+  .add-project-h1 h1 {
+    margin-bottom: 0;
+  }
+
+  #input-description {
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 15px;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+  }
+
+  #create-button{
+    color: white;
+    --gradient: linear-gradient(
+        25deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(121, 9, 112, 1) 20%,
+        rgba(0, 212, 255, 1) 60%,
+        rgb(184, 20, 118) 80%,
+        rgba(2, 0, 36, 1) 100%
+      );
+      background: var(--gradient);
+      border: none;
+  }
