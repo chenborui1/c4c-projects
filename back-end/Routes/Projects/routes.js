@@ -7,6 +7,7 @@ export default function (server) {
     res.json(projects);
   });
 
+
   server.delete("/api/projects/delete", async (req, res) => {
     const secret = process.env.SECRET_KEY;
     const token = req.headers.authorization;
@@ -26,6 +27,28 @@ export default function (server) {
       res.status(500).json({ error: "Failed to delete project" });
     }
   });
+
+  server.post("/api/projects/edit", async (req, res) => {
+    const secret = process.env.SECRET_KEY;
+    const token = req.body.headers.Authorization;
+    jwt.verify(token, secret, async (err, decoded) => {
+      if (err) {
+        console.error("Token verification failed:", err.message);
+        return;
+      }
+
+      try {
+      const projectID = req.body.data.id
+      const updatedDetails = req.body.data
+      console.log(updatedDetails.title)
+      await model.findByIdAndUpdate(projectID, {title: updatedDetails.title, header: updatedDetails.header, 
+        description: updatedDetails.description, image_url: updatedDetails.img_url, active: updatedDetails.active})
+      res.json({ message: "Project edited successfully" });
+      } catch (error) {
+        res.status(500).json({ error: "Failed to edit project" });
+      }
+    });
+  })
 
   server.post("/api/projects/add", async (req, res) => {
     const secret = process.env.SECRET_KEY;

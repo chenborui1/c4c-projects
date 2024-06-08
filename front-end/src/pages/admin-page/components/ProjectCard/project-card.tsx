@@ -1,14 +1,18 @@
 import React, {useState} from 'react'
 import DeleteModal from '../ConfirmDelete/delete-modal.tsx';
+import EditModal from '../ModifyProjects/edit-projects.tsx';
 import './style.css'
 import { GoDotFill } from "react-icons/go";
 import {  motion } from "framer-motion"
+
+
 export default function ProjectCard({project, edit}) {
     
     const [isDeleteOpen, setisDeleteOpen] = useState(false)
+    const [isEditOpen, setisEditOpen] = useState(false)
     const isActive = project.active
     
-    if (isDeleteOpen) {
+    if (isDeleteOpen || isEditOpen) {
         document.body.style.overflow = 'hidden'
     }
     else {
@@ -34,10 +38,15 @@ export default function ProjectCard({project, edit}) {
 
        <div className='img-container'><img src={project.image_url} alt="project_image" /></div> 
         <div className="project-buttons">
-            <motion.button whileHover={{scale : 1.2, fontWeight: 'bold'}} className='edit'>Edit</motion.button>
-            <motion.button onClick={()=> setisDeleteOpen(true)} whileHover={{scale : 1.2, fontWeight: 'bold'}}className='delete'>Delete</motion.button>
+            <motion.button onClick={()=> setisEditOpen(true)} whileHover={{scale : 1.2,}} className='edit'>Edit</motion.button>
+            <motion.button onClick={()=> setisDeleteOpen(true)} whileHover={{scale : 1.2, }}className='delete'>Delete</motion.button>
         </div>
         <DeleteModal project={project} open={isDeleteOpen} onClose={(e) => {setisDeleteOpen(false)
+            if (e === true) {
+                edit()
+            }
+        }} />
+         <EditModal project={project} open={isEditOpen} onClose={(e) => {setisEditOpen(false)
             if (e === true) {
                 edit()
             }
