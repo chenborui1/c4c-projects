@@ -149,3 +149,6 @@ determines which projects are displayed in the client user page.
 
 Implemented the ability to search for organizations by their title in admin page. Also added filter functionality that can either display all existing organizations or only active organization for easy access and edit capabilities for admin users. 
 
+### Things to improve:
+
+I would definitely make the site more responsive to be able to view it on mobile or tablets. I would also create more forms of error handling such as popups when users fail to authenticate, or unable to edit, add, delete organizations etc. Overall was a very rewarding project and refreshed memory on making API calls and setting up routes for back-end. Also learned fundamentals of implementing animations and hover effects. 
