@@ -28,7 +28,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const findAllProjects = async () => {
-        console.log("refreshed")
+       
       const response = await axios.get(PROJECTS_API);
       setProjects(response.data);
     };

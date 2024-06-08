@@ -52,7 +52,7 @@
     margin-bottom: 0;
   }
 
-  #input-description {
+  #input-description, #edit-description{
     margin-bottom: 10px;
     font-size: 20px;
     padding: 15px;
@@ -62,7 +62,7 @@
     border-radius: 20px;
   }
 
-  #create-button{
+  #create-button {
     color: white;
     --gradient: linear-gradient(
         25deg,
